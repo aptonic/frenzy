@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>.unknown-10.4</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+
+            set docname to &quot;&quot;
+            set docurl to &quot;&quot;
+
+            tell application &quot;System Events&quot;
+                set pr to first application process whose displayed name is &quot;CURRENTAPPNAME&quot;
+                tell pr
+                    try
+                        set isScriptable to has scripting terminology
+                    on error
+                        set isScriptable to false
+                    end try
+                end tell
+            end tell 
+            
+            if isScriptable then
+                
+                tell application &quot;CURRENTAPPNAME&quot;
+                                    
+                    try
+
+                        set doc to document 1 of window 1
+                        set docname to name of doc
+                        set docpath to path of doc
+                        
+                    on error
+                    
+                        set docname to &quot;&quot;
+                        set docpath to &quot;&quot;
+                        set docurl to &quot;&quot;
+
+                    end try
+                    
+                end tell
+
+                try
+                
+                    set posixFilePath to POSIX path of docpath
+                    set docurl to &quot;[filepath=\&quot;&quot; &amp; posixFilePath &amp; &quot;\&quot;]&quot; &amp; docname &amp; &quot;[/filepath]&quot;
+                                    
+                on error
+                    set docname to &quot;&quot;
+                    set docurl to &quot;&quot;
+                end try
+                
+            end if
+
+            docurl
+
+        </string>
+	</dict>
+	<key>.unknown-10.5</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+
+            set docname to &quot;&quot;
+            set docurl to &quot;&quot;
+
+            tell application &quot;System Events&quot;
+
+                set pr to first application process whose bundle identifier is &quot;CURRENTBUNDLEID&quot;
+
+                tell pr
+                    try
+                        set isScriptable to has scripting terminology
+                    on error
+                        set isScriptable to false
+                    end try
+                end tell
+            end tell 
+            
+            if isScriptable then
+                
+                tell application id &quot;CURRENTBUNDLEID&quot;
+                                    
+                    try
+
+                        set doc to document 1 of window 1
+                        set docname to name of doc
+                        set docpath to path of doc
+                        
+                    on error
+                    
+                        set docname to &quot;&quot;
+                        set docpath to &quot;&quot;
+                        set docurl to &quot;&quot;
+
+                    end try
+                    
+                end tell
+
+                try
+                
+                    set posixFilePath to POSIX path of docpath
+                    set docurl to &quot;[filepath=\&quot;&quot; &amp; posixFilePath &amp; &quot;\&quot;]&quot; &amp; docname &amp; &quot;[/filepath]&quot;
+                    
+                on error
+                    set docname to &quot;&quot;
+                    set docurl to &quot;&quot;
+                end try
+
+            end if
+
+            docurl
+
+        </string>
+	</dict>
+	<key>com.apple.finder</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+            tell application &quot;Finder&quot;
+                
+                set selectionList to {} &amp; selection as list
+                set selectedCount to count items in selectionList
+                
+                set fileURLs to {} as list
+                
+                if selectedCount &gt; 0 then
+                    
+                    repeat with fileItem in selectionList
+                        
+                        set fileName to name of fileItem
+                        set filePath to fileItem as text
+                        
+                        set posixFilePath to POSIX path of filePath
+                        set fileURL to &quot;[filepath=\&quot;&quot; &amp; posixFilePath &amp; &quot;\&quot;]&quot; &amp; fileName &amp; &quot;[/filepath]&quot;
+                        
+                        set fileURLs to fileURLs &amp; fileURL
+                        
+                    end repeat
+                    
+                    set AppleScript&apos;s text item delimiters to {&quot; &quot; &amp; return}
+                    set fileURL to fileURLs as string
+                    set AppleScript&apos;s text item delimiters to {&quot;&quot;}
+                    
+                    fileURL
+                    
+                else
+                    
+                    &quot;&quot;
+                    
+                end if
+                
+            end tell
+        </string>
+	</dict>
+	<key>com.apple.iphoto</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+tell application &quot;iPhoto&quot;
+	
+	set selectionList to {} &amp; selection as list
+	set selectedCount to count items in selectionList
+	
+	set fileURLs to {} as list
+	
+	if selectedCount &gt; 0 then
+		
+		repeat with fileItem in selectionList
+			
+			set fileName to name of fileItem
+			set filePath to image path of fileItem as text
+			
+			set posixFilePath to POSIX path of filePath
+			set fileURL to &quot;[filepath=\&quot;&quot; &amp; posixFilePath &amp; &quot;\&quot;]&quot; &amp; fileName &amp; &quot;[/filepath]&quot;
+			
+			set fileURLs to fileURLs &amp; fileURL
+			
+		end repeat
+		
+		set AppleScript&apos;s text item delimiters to {&quot; &quot; &amp; return}
+		set fileURL to fileURLs as string
+		set AppleScript&apos;s text item delimiters to {&quot;&quot;}
+		
+		fileURL
+		
+	else
+		
+		&quot;&quot;
+		
+	end if
+	
+end tell
+</string>
+	</dict>
+	<key>com.apple.itunes</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+tell application &quot;iTunes&quot;
+	
+	set selectionList to {} &amp; selection as list
+	set selectedCount to count items in selectionList
+	
+	set fileURLs to {} as list
+	
+	if selectedCount &gt; 0 then
+		
+		repeat with fileItem in selectionList
+			
+			set fileName to name of fileItem
+			set filePath to (get location of fileItem) as text
+			
+			set posixFilePath to POSIX path of filePath
+			set fileURL to &quot;[filepath=\&quot;&quot; &amp; posixFilePath &amp; &quot;\&quot;]&quot; &amp; fileName &amp; &quot;[/filepath]&quot;
+			
+			set fileURLs to fileURLs &amp; fileURL
+			
+		end repeat
+		
+		set AppleScript&apos;s text item delimiters to {&quot; &quot; &amp; return}
+		set fileURL to fileURLs as string
+		set AppleScript&apos;s text item delimiters to {&quot;&quot;}
+		
+		fileURL
+		
+	else
+		
+		&quot;&quot;
+		
+	end if
+	
+end tell
+</string>
+	</dict>
+	<key>com.apple.iwork.pages</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+        
+            set docurl to &quot;&quot;
+        
+            tell application &quot;Pages&quot;
+	
+                set current_document to item 1 of documents
+
+                try
+                    set docname to name of current_document
+                    set docpath to path of current_document
+                on error
+                    set docname to &quot;&quot;
+                    set docpath to &quot;&quot;
+                end try
+
+            end tell
+            
+            try
+                
+                set posixFilePath to POSIX path of docpath
+
+                set docurl to &quot;[filepath=\&quot;&quot; &amp; posixFilePath &amp; &quot;\&quot;]&quot; &amp; docname &amp; &quot;[/filepath]&quot;
+                                            
+            on error
+            end try
+
+            docurl
+            
+        </string>
+	</dict>
+	<key>com.apple.preview</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+set docurl to &quot;&quot;
+try
+	tell application &quot;System Events&quot;
+		
+		tell process &quot;Preview&quot;
+			tell (1st window whose value of attribute &quot;AXMain&quot; is true)
+				set docname to value of attribute &quot;AXTitle&quot;
+				set docpath to value of attribute &quot;AXDocument&quot;
+			end tell
+		end tell
+	end tell
+on error
+	set docname to &quot;&quot;
+	set docpath to &quot;&quot;
+end try
+
+try
+	set posixFilePath to POSIX path of urlToPOSIXPath(docpath)
+	set docurl to &quot;[filepath=\&quot;&quot; &amp; posixFilePath &amp; &quot;\&quot;]&quot; &amp; docname &amp; &quot;[/filepath]&quot;
+end try
+
+docurl
+
+on urlToPOSIXPath(theURL)
+	return do shell script &quot;python -c \&quot;import urllib, urlparse, sys; print urllib.unquote(urlparse.urlparse(sys.argv[1])[2])\&quot; &quot; &amp; quoted form of theURL
+end urlToPOSIXPath</string>
+	</dict>
+	<key>com.apple.safari</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+
+            set resultNote to &quot;&quot;
+
+            tell application &quot;Safari&quot;
+
+                set current_documents to documents
+                set current_document to item 1 of current_documents
+                set current_url to URL of current_document as text
+                
+                if (current_url begins with &quot;http&quot;) or (current_url begins with &quot;ftp&quot;) then
+                    set current_title to name of current tab of front window
+                    set resultNote to &quot;[url=\&quot;&quot; &amp; current_url &amp; &quot;\&quot;]&quot; &amp; current_title &amp; &quot;[/url]&quot;
+                end if
+                
+            end tell
+            
+            resultNote
+
+        </string>
+	</dict>
+	<key>com.apple.textedit</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+
+            set docurl to &quot;&quot;
+            tell application &quot;TextEdit&quot;	
+
+                set current_document to item 1 of documents
+
+                try
+                    set docname to name of current_document
+                    set docpath to path of current_document
+                on error
+                    set docname to &quot;&quot;
+                    set docpath to &quot;&quot;
+                end try
+
+            end tell
+            
+            try
+
+                set posixFilePath to POSIX path of docpath
+                set docurl to &quot;[filepath=\&quot;&quot; &amp; posixFilePath &amp; &quot;\&quot;]&quot; &amp; docname &amp; &quot;[/filepath]&quot;
+
+                    
+            on error
+            end try
+
+            docurl
+            
+        </string>
+	</dict>
+	<key>com.barebones.textwrangler</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+        
+            tell application &quot;TextWrangler&quot;	
+
+                set current_document to first document
+
+                try
+                    set docname to name of current_document
+                    set docfile to file of current_document
+                on error
+                    set docname to &quot;&quot;
+                    set docfile to missing value
+                end try
+
+
+            end tell
+            
+            try
+
+                set posixFilePath to POSIX path of docfile
+                set docurl to &quot;[filepath=\&quot;&quot; &amp; posixFilePath &amp; &quot;\&quot;]&quot; &amp; docname &amp; &quot;[/filepath]&quot;
+                                    
+            on error
+            end try
+
+            docurl
+            
+        </string>
+	</dict>
+	<key>com.google.chrome</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>set resultNote to &quot;&quot;tell application &quot;Google Chrome&quot;	set current_url to URL of active tab of front window		if (current_url begins with &quot;http&quot;) or (current_url begins with &quot;ftp&quot;) then		set current_title to title of active tab of front window		set resultNote to &quot;[url=\&quot;&quot; &amp; current_url &amp; &quot;\&quot;]&quot; &amp; current_title &amp; &quot;[/url]&quot;	end if	end tellresultNote</string>
+	</dict>
+	<key>com.microsoft.word</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+        
+            set resultNote to &quot;&quot;
+
+            set current_text to &quot;&quot;
+
+            tell application &quot;Microsoft Word&quot;
+                
+                
+                try
+                    set current_name to name of active document
+                    
+                    set current_selectionStart to selection start of selection
+                    set current_selectionEnd to selection end of selection
+                    if current_selectionStart is not current_selectionEnd then
+                        set current_text to content of selection
+                    end if
+                    
+                    set p to path of active document
+                    set posixFullPath to POSIX path of p
+                    
+                on error
+                    set posixFullPath to &quot;&quot;
+                end try
+                
+            end tell
+
+            try
+                POSIX file posixFullPath as alias
+                set resultNote to &quot;[filepath=\&quot;&quot; &amp; posixFullPath &amp; &quot;\&quot;]&quot; &amp; current_name &amp; &quot;[/filepath]&quot;
+                if current_text is not &quot;&quot; then
+                    set resultNote to resultNote &amp; return &amp; return &amp; current_text
+                end if
+            on error
+                set resultNote to current_text
+            end try
+
+            resultNote
+            
+        </string>
+		<key>DisableInvokingServices</key>
+		<true/>
+	</dict>
+	<key>com.omnigroup.omniweb5</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>	
+    		tell application &quot;OmniWeb&quot;
+    		    set myInfo to «event WWW!WNFO»
+    		    set my_URL to item 1 of myInfo
+    		    set win_title to item 2 of myInfo
+    		    &quot;[url=\&quot;&quot; &amp; my_URL &amp; &quot;\&quot;]&quot; &amp; win_title &amp; &quot;[/url]&quot;
+    	    end tell
+	    </string>
+	</dict>
+	<key>com.operasoftware.opera</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>	
+		    tell application &quot;Opera&quot;
+		        set my_URL to URL of front document as string
+		        set win_title to name of front window
+		        &quot;[url=\&quot;&quot; &amp; my_URL &amp; &quot;\&quot;]&quot; &amp; win_title &amp; &quot;[/url]&quot;
+	        end tell
+	    </string>
+	</dict>
+	<key>com.ranchero.netnewswire</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+            tell application &quot;NetNewsWire&quot;
+            	set currentTab to index of selected tab
+            	if currentTab is 0 then
+            		-- Get the selected headline
+            		set my_URL to (permalink of selectedHeadline) as text
+            		if my_URL is &quot;&quot; then
+            			set my_URL to (URL of selectedHeadline) as text
+            			if my_URL is &quot;&quot; then
+            				set my_URL to (home URL of selectedSubscription) as text
+            			end if
+            		end if
+            		set win_title to title of selectedHeadline
+            		set win_title to title of selectedHeadline
+            		set win_title to my replaceText(&quot;&amp;#39;&quot;, &quot;&apos;&quot;, win_title)
+            		set win_title to my replaceText(&quot;&amp;reg;&quot;, &quot;®&quot;, win_title)
+            		set win_title to my replaceText(&quot;&amp;trade;&quot;, &quot;™&quot;, win_title)
+            		set win_title to my replaceText(&quot;&amp;amp;&quot;, &quot;&amp;&quot;, win_title)
+            	else
+            		-- Get the current tab url
+            		set urlsList to URLs of tabs
+            		set titlesList to titles of tabs
+            		set ixCurrentTab to index of selected tab
+            		set my_URL to item (ixCurrentTab + 1) of urlsList as text
+            		set win_title to (item (currentTab + 1) of titlesList) as text
+            	end if
+	
+            	&quot;[url=\&quot;&quot; &amp; my_URL &amp; &quot;\&quot;]&quot; &amp; win_title &amp; &quot;[/url]&quot;
+            end tell
+
+            on replaceText(find, replace, subject)
+            	set prevTIDs to text item delimiters of AppleScript
+            	set text item delimiters of AppleScript to find
+            	set subject to text items of subject
+	
+            	set text item delimiters of AppleScript to replace
+            	set subject to &quot;&quot; &amp; subject
+            	set text item delimiters of AppleScript to prevTIDs
+	
+            	return subject
+            end replaceText       
+        </string>
+	</dict>
+	<key>net.sourceforge.skim-app.skim</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+        
+            tell application &quot;Skim&quot;
+	
+                set doc to document 1
+                                
+                set docname to name of doc
+                set docfile to file of doc
+
+                set posixFilePath to POSIX path of docfile
+                set docurl to &quot;[filepath=\&quot;&quot; &amp; posixFilePath &amp; &quot;\&quot;]&quot; &amp; docname &amp; &quot;[/filepath]&quot;
+                                
+            end tell
+            
+            docurl
+            
+        </string>
+	</dict>
+	<key>org.mozilla.camino</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+
+            tell application &quot;Camino&quot;
+                set t to current tab of window 1
+                set current_title to title of t
+                set current_url to URL of t
+            end tell
+
+            &quot;[url=\&quot;&quot; &amp; current_url &amp; &quot;\&quot;]&quot; &amp; current_title &amp; &quot;[/url]&quot;
+
+        </string>
+	</dict>
+	<key>org.mozilla.firefox</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>	
+		    tell application &quot;Firefox&quot;
+		        set windowProperties to properties of front window
+	        end tell
+	
+        	try
+        		-- If curl property exists then use it for the url (FF &lt; 3.6 only)
+        		set my_URL to «class curl» of windowProperties
+        	on error
+        		-- Otherwise we have to use the Frenzy plugin to get the url (FF &gt; 3.6)
+        		return FF_getURL(windowProperties)
+        	end try
+	
+        	set title to «class pTit» of windowProperties
+        	return &quot;[url=\&quot;&quot; &amp; my_URL &amp; &quot;\&quot;]&quot; &amp; title &amp; &quot;[/url]&quot;
+
+            on FF_getURL(windowProperties)
+            	-- Sometimes a floating window such as a tooltip will be in front of the main window
+            	-- in which case we grab the second window which should be the browser window behind it
+            	tell application &quot;Firefox&quot;
+            		if titled of windowProperties is false then
+            			set windowProperties to properties of window 2
+            		end if
+            	end tell
+	
+            	set title to name of windowProperties
+	
+            	set appSupportFolder to POSIX path of (path to application support from user domain)
+            	set currentURLFile to (appSupportFolder as string) &amp; &quot;Firefox/&quot; &amp; &quot;.current-urls&quot;
+	
+            	set foundTitle to false
+            	set foundUrl to &quot;&quot;
+	
+            	set fileref to open for access POSIX file currentURLFile
+            	set URLLines to paragraphs of (read fileref as «class utf8»)
+            	close access fileref
+            	repeat with nextLine in URLLines
+            		if length of nextLine is greater than 0 then
+            			if foundTitle then
+            				set foundUrl to nextLine as string
+            				exit repeat
+            			end if
+			
+            			if nextLine starts with title then
+            				set foundTitle to true
+            			end if
+            		end if
+            	end repeat
+	
+            	if title is equal to &quot;&quot; or foundUrl is equal to &quot;&quot; then return &quot;&quot;
+            	return &quot;[url=\&quot;&quot; &amp; foundUrl &amp; &quot;\&quot;]&quot; &amp; title &amp; &quot;[/url]&quot;
+            end FF_getURL
+        </string>
+	</dict>
+	<key>org.webkit.nightly.webkit</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>
+
+            set resultNote to &quot;&quot;
+
+            tell application &quot;WebKit&quot;
+
+                set current_documents to documents
+                set current_document to item 1 of current_documents
+                set current_url to URL of current_document as text
+                
+                if (current_url begins with &quot;http&quot;) or (current_url begins with &quot;ftp&quot;) then
+                    set current_title to name of current tab of front window
+                    set resultNote to &quot;[url=\&quot;&quot; &amp; current_url &amp; &quot;\&quot;]&quot; &amp; current_title &amp; &quot;[/url]&quot;
+                end if
+                
+            end tell
+            
+            resultNote
+
+        </string>
+	</dict>
+	<key>com.cocoatech.pathfinder</key>
+	<dict>
+		<key>AppleScript</key>
+		<string>tell application &quot;Path Finder&quot;		set selectionList to {} &amp; selection as list	set selectedCount to count items in selectionList		set fileURLs to {} as list		if selectedCount &gt; 0 and selection is not missing value then				repeat with fileItem in selectionList						set fileName to name of fileItem			set posixFilePath to POSIX path of fileItem			set fileURL to &quot;[filepath=\&quot;&quot; &amp; posixFilePath &amp; &quot;\&quot;]&quot; &amp; fileName &amp; &quot;[/filepath]&quot;			set fileURLs to fileURLs &amp; fileURL					end repeat				set AppleScript&apos;s text item delimiters to {&quot; &quot; &amp; return}		set fileURL to fileURLs as string		set AppleScript&apos;s text item delimiters to {&quot;&quot;}				fileURL			else		&quot;&quot;	end if	end tell</string>
+	</dict>
+</dict>
+</plist>

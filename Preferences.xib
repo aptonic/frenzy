@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1060" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PrefsController">
+            <connections>
+                <outlet property="addToLoginItems" destination="25" id="29"/>
+                <outlet property="avatarImageView" destination="81" id="96"/>
+                <outlet property="displayNameField" destination="84" id="107"/>
+                <outlet property="dropboxToolbarItem" destination="33" id="47"/>
+                <outlet property="dropboxView" destination="34" id="48"/>
+                <outlet property="generalToolbarItem" destination="11" id="18"/>
+                <outlet property="generalView" destination="14" id="19"/>
+                <outlet property="mainRecorder" destination="Ed1-sU-8Z8" id="quw-l6-YLk"/>
+                <outlet property="sharedFoldersTable" destination="61" id="66"/>
+                <outlet property="shortcutView" destination="Ed1-sU-8Z8" id="pc7-4u-ESY"/>
+                <outlet property="window" destination="1" id="20"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="General" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" wantsToBeColor="NO" visibleAtLaunch="NO" animationBehavior="default" id="1">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="235" width="400" height="275"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <view key="contentView" id="2">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="275"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </view>
+            <toolbar key="toolbar" implicitIdentifier="C9B410FD-2A3B-4C6F-95FD-4413AB73C959" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="3">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="46938975-C18F-45B9-B5EB-04917D94E0A0" label="General" paletteLabel="General" tag="-1" image="prefs" selectable="YES" id="11"/>
+                    <toolbarItem implicitItemIdentifier="BA51E80D-5D4F-4F33-97C6-9F0F23599899" label="Dropbox" paletteLabel="Dropbox" tag="-1" image="dropbox" selectable="YES" id="33"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="9"/>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="11"/>
+                    <toolbarItem reference="33"/>
+                    <toolbarItem reference="9"/>
+                </defaultToolbarItems>
+            </toolbar>
+        </window>
+        <customView id="14" userLabel="General">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" id="16">
+                    <rect key="frame" x="90" y="107" width="76" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Set Hotkey:" id="17">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button id="25">
+                    <rect key="frame" x="91" y="38" width="153" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Start Frenzy at Login" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="26">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="addToLoginItems:" target="-2" id="28"/>
+                        <binding destination="30" name="value" keyPath="values.startAtLogin" id="32"/>
+                    </connections>
+                </button>
+                <button id="68">
+                    <rect key="frame" x="91" y="18" width="182" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Auto hide Frenzy window" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="69">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="autoHideChanged:" target="-2" id="73"/>
+                        <binding destination="30" name="value" keyPath="values.autoHide" id="72"/>
+                    </connections>
+                </button>
+                <imageView id="81" customClass="ClickableImageView">
+                    <rect key="frame" x="90" y="170" width="63" height="63"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="82"/>
+                    <connections>
+                        <action selector="selectAvatar:" target="-2" id="94"/>
+                        <binding destination="30" name="value" keyPath="values.userImage" id="121">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">DataToImageTransformer</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </imageView>
+                <textField verticalHuggingPriority="750" id="84">
+                    <rect key="frame" x="171" y="190" width="147" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="85">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <action selector="changeDisplayName:" target="-2" id="106"/>
+                        <binding destination="30" name="value" keyPath="values.displayName" id="105">
+                            <dictionary key="options">
+                                <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </textField>
+                <textField verticalHuggingPriority="750" id="86">
+                    <rect key="frame" x="168" y="213" width="95" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Display Name:" id="87">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView id="122">
+                    <rect key="frame" x="20" y="151" width="360" height="3"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="divider-long" id="123"/>
+                </imageView>
+                <imageView id="124">
+                    <rect key="frame" x="21" y="71" width="359" height="3"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="divider-long" id="125"/>
+                </imageView>
+                <customView id="Ed1-sU-8Z8" customClass="MASShortcutView">
+                    <rect key="frame" x="170" y="103" width="117" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+            </subviews>
+        </customView>
+        <customView id="34" userLabel="Dropbox">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="285"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" id="45">
+                    <rect key="frame" x="17" y="248" width="315" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Select Dropbox shared folders to use with Frenzy" id="46">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="49" customClass="VerticalOnlyScrollView">
+                    <rect key="frame" x="20" y="60" width="360" height="170"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <clipView key="contentView" id="sil-Sp-BTV">
+                        <rect key="frame" x="1" y="17" width="358" height="152"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" headerView="53" id="52" customClass="DisabledArrowKeysTableView">
+                                <rect key="frame" x="0.0" y="0.0" width="358" height="152"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn identifier="active" width="40" minWidth="40" maxWidth="1000" id="55">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Active">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="56">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
+                                    </tableColumn>
+                                    <tableColumn identifier="folder" editable="NO" width="312" minWidth="10" maxWidth="3.4028234663852886e+38" id="59">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Folder">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingMiddle" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="60" customClass="LimitedWidthTextFieldCell">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
+                                    </tableColumn>
+                                </tableColumns>
+                                <connections>
+                                    <outlet property="dataSource" destination="61" id="63"/>
+                                    <outlet property="delegate" destination="61" id="64"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="51">
+                        <rect key="frame" x="-100" y="-100" width="238" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="50">
+                        <rect key="frame" x="224" y="17" width="15" height="102"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <tableHeaderView key="headerView" id="53">
+                        <rect key="frame" x="0.0" y="0.0" width="358" height="17"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </tableHeaderView>
+                </scrollView>
+                <button verticalHuggingPriority="750" id="134">
+                    <rect key="frame" x="243" y="12" width="143" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Choose Folder..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="135">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="chooseFolder:" target="-2" id="136"/>
+                    </connections>
+                </button>
+                <button hidden="YES" verticalHuggingPriority="750" id="137">
+                    <rect key="frame" x="14" y="12" width="153" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Remove From List" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="138">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="removeFolder:" target="61" id="140"/>
+                    </connections>
+                </button>
+            </subviews>
+        </customView>
+        <userDefaultsController representsSharedInstance="YES" id="30"/>
+        <customObject id="61" customClass="SharedFoldersTable">
+            <connections>
+                <outlet property="foldersTable" destination="52" id="67"/>
+                <outlet property="removeButton" destination="137" id="139"/>
+            </connections>
+        </customObject>
+    </objects>
+    <resources>
+        <image name="divider-long" width="522" height="2"/>
+        <image name="dropbox" width="140" height="140"/>
+        <image name="prefs" width="32" height="32"/>
+    </resources>
+</document>

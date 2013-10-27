@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Frenzy Feed</title>
+	<link rel="stylesheet" type="text/css" href="Default.css" id="ss" />
+	<script type="text/javascript" src="jquery.js"></script>
+    <script src="jquery.linkify.js"></script>
+
+	<script language="javascript" type="text/javascript">
+		
+		function deleteButtonsToggle(active) {
+			if (active) {
+				$('.reply-button-hasdelete').hide();
+				$('.delete-button').show();
+			} else {
+				$('.reply-button-hasdelete').show();
+				$('.delete-button').hide();
+
+			}
+		}
+		
+		function updateFileStatus() {
+			result = window.FileController.getFileStatus();			
+			var fileItems = eval('(' + result + ')');
+			
+			$(fileItems).each(function(index,item) {
+				uid = item["uid"];
+				files = item["files"];
+				
+				file_list_items = $("#" + uid + " ul li.disabled");
+				
+				$(file_list_items).each(function(li_index,li_item) {
+				
+					$(files).each(function(file_index,file_item) {
+						if (file_item["name"] == li_item.innerText) {
+							if (file_item["hasTransferred"]) {					
+								$(li_item).animate({opacity: "1.0"});
+								$(li_item).removeClass('disabled');
+							}
+							return false;
+						}
+					});
+					num_disabled_items = $("#" + uid + " ul li.disabled").length;
+					
+					if (num_disabled_items == 0) {
+						fileStatus = $("#" + uid + " p.file-status");
+						$(fileStatus).animate({opacity: "0"}, 100);
+						$(fileStatus).animate({height: "0"}, 200, 'linear', function() { $(this).remove(); });
+						revealLink = $("#" + uid + " .reveal");
+						if (revealLink != null) {
+							$(revealLink).animate({opacity: "1"}, 100);
+							$(revealLink).removeClass("disabled");
+						}
+					}
+				});
+			});
+			
+			num_disabled_items = $(".file-list ul li.disabled").length;
+			
+			if (num_disabled_items > 0) {
+                setTimeout("updateFileStatus()", 3000);
+			}
+		}
+        
+        function updateHiddenImages() {
+            hidden_images = $("img.avatar-hidden");
+            
+            $(hidden_images).each(function(hidden_index, hidden_item) {
+                src_exists = window.AppController.getPathStatus_(hidden_item.src);
+                if (src_exists) { 
+                    var src = hidden_item.src;
+
+                    var pos = src.indexOf('?');
+                    if (pos >= 0) {
+                        src = src.substr(0, pos);
+                    }
+                              
+                    var date = new Date();
+                    hidden_item.src = src + '?' + date.getTime();
+                                  
+                    $(hidden_item).removeClass().addClass("avatar");
+                    $(hidden_item).prev().css({ opacity: 0 });
+                }
+            });
+            
+            num_hidden_images = hidden_images.length;
+            
+            if (num_hidden_images > 0) {
+                setTimeout("updateHiddenImages()", 3000);
+			}
+        }
+        
+        function updateFooterInfo() {
+            info_elements = $("p.info");
+            
+            $(info_elements).each(function(info_index, info_item) {
+                result = window.AppController.getLatestFooterInfo_(info_index);
+                $(info_item).text(result);
+            });
+            
+            setTimeout("updateFooterInfo()", 60000);
+        }
+		
+		setTimeout("updateFileStatus()", 3000);
+        setTimeout("updateHiddenImages()", 3000);
+        setTimeout("updateFooterInfo()", 60000);
+		
+		function disableFileLink(feedItemIndex, fileIndex, revealLink) {
+			feed_item_divs = $(".feed-item, .feed-item-last");
+			feed_item = feed_item_divs[feedItemIndex];
+			
+			var disable_item;
+			
+			if (revealLink) {
+				disable_item = $(feed_item).find(".reveal");
+			} else {
+				feed_item_files = $(feed_item).find(".file-list ul li");
+				disable_item = feed_item_files[fileIndex];
+			}
+							
+			$(disable_item).animate({opacity: "0.4"}, 100);
+			$(disable_item).addClass('disabled');
+		}
+        
+        function finalJSInit() {
+            $("p.main-message, div.message-body").linkify();
+            
+            $('.messages-expand').click(function() {
+                var msg_parts = $(this).text().split(' ');
+                if (msg_parts[0] == "Show") {
+                    num_messages = msg_parts[1];
+                    $(this).data('num_messages', num_messages);	
+                    $(this).text('Hide messages');
+                } else {
+                    num_messages = $(this).data('num_messages');
+                    ending = (num_messages > 1 ? 'messages' : 'message');
+                    $(this).text('Show ' + num_messages + ' more hidden ' + ending);
+                }
+                                        
+                $(this).prev().slideToggle(150); 
+            });
+        }
+        
+        function webViewHasVerticalScrollbar() {
+            $("div.feed-item-last").css("border-bottom","0");
+        }
+
+	</script>
+</head>
+
+<body>
+
+<div id="feed-list">
+	
+</div>
+
+<div id="preloader">
+	<img src="reply.png" />
+	<img src="reply-h.png" />
+	<img src="delete.png" />
+	<img src="delete-h.png" />
+</div>
+
+</body>
+
+</html>

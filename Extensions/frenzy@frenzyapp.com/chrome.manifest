@@ -1,0 +1,6 @@
+content   frenzy                 chrome/content/
+skin      frenzy   classic/1.0   chrome/skin/
+locale    frenzy   en-US         chrome/locale/en-US/
+
+
+overlay   chrome://browser/content/browser.xul   chrome://frenzy/content/frenzy.xul

@@ -1,0 +1,352 @@
+/* @group General */
+
+body {
+    font-family: 'Lucida Grande', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+	-webkit-user-select: none;
+	word-wrap: break-word;
+	overflow-x: hidden;
+	
+}
+
+div.feed-item, div.feed-item-last {
+    padding-left: 10px;
+    width: auto;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#d4d4d4));
+	cursor:default;
+	padding-top: 10px;
+	border-bottom: 0.1em solid #c6c6c6;
+	padding-bottom: 10px;
+}
+
+div.item-info {
+    width: auto;
+    margin-left: 65px;
+    margin-right: 10px;
+    padding-top: 0px;
+	min-height: 57px;
+	position: relative;
+}
+
+h2 {
+    font-size: 12px;
+    font-weight: bold;
+	width: 168px;
+	color: #606060;
+	padding-top: 0px;
+	margin-top: 0px;
+	margin: 0;
+	
+}
+
+a {
+	font: 12px/14px Helvetica, Geneva, sans-serif;
+	text-shadow: #fcfcfc 0 1px 0;
+    color: #406de8;
+	text-decoration: none;
+	-webkit-user-select: text;
+}
+
+div.link-wrapper {
+	margin-top: 5px;
+	padding-bottom: 4px;
+	text-indent: -0.2em;
+}
+
+div.link-wrapper a, div.file-list a, p.main-message a {
+	cursor:default;
+	border-radius: 8px;
+	border: 0.2em solid rgba(255,255,255,0);
+}
+
+div.link-wrapper a:active, div.file-list a:active, p.main-message a:active {
+	background-color: rgba(255,255,255,0.7);
+	border-radius: 8px;
+	border-style: solid;
+	border-color: white;
+	border: 0.2em solid rgba(255,255,255,0);
+	border-bottom-style: solid;
+	border-bottom-width: 0.1em;
+}
+
+p.info {
+	font-size: 11px;
+	text-shadow: #fff 0 1px 0;
+
+	margin: 4px 0 0;
+	color: #777;
+	font-style: bold;
+}
+
+.disabled, .disabled-p {
+	pointer-events: none;
+	cursor: default;
+	opacity: 0.4;
+
+}
+
+div#preloader {
+	position: absolute;
+	left: -9999px;
+	top:  -9999px;
+}
+
+div#preloader img {
+	display: block;
+}
+
+/* @end */
+
+/* @group Avatar */
+
+img.avatar, img.avatar-hidden, img.avatar-empty {
+    width: 55px;
+    height: 55px;
+    margin-top: 1px; 
+    border-radius: 4px;
+    position: absolute;
+    -webkit-transition: all 0.5s ease-in-out;
+    opacity: 1.0;
+}
+
+div.shad {
+    float: left;
+    position:relative;
+    top:1px;
+    width: 55px;
+     -webkit-box-shadow:inset 0px 1px 5px #444;
+    height: 55px;
+    border-radius: 4px;
+    background-repeat: no-repeat;
+
+    z-index: 20;
+}
+
+img.avatar-hidden {
+    opacity: 0;
+}
+
+#empty {
+	position: absolute;
+	z-index: 900;
+    width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: url(empty.png) no-repeat 0px 0px;
+}
+
+/* @end */
+
+/* @group Buttons */
+
+#message_button {
+    font-size: 18px;
+    margin: 20px 0 0 0;
+    padding: 0 5px;
+}
+
+a.reply-button, a.reply-button-hasdelete
+{
+	background-image: url(reply.png);
+	float: right;
+	width: 45px;
+	height: 20px;
+	margin-top: -2px;
+	cursor:default;
+	-webkit-user-drag: none;
+}
+
+a.reply-button:active, a.reply-button-hasdelete:active
+{
+	background-image: url(reply-h.png);
+}
+
+a.delete-button, a.delete-button-nohide
+{
+	background-image: url(delete.png);
+	float: right;
+	width: 45px;
+	height: 20px;
+	display: none;
+	margin-top: -2px;
+	cursor:default;
+	-webkit-user-drag: none;
+
+}
+
+a.delete-button:active, a.delete-button-nohide:active
+{
+	background-image: url(delete-h.png);
+}
+
+a.delete-button-nohide
+{
+	display: block;
+}
+
+.buttons-hidden a.fade-button {
+	opacity: 0;
+  -webkit-transition: opacity 0.15s ease;
+
+}
+
+.buttons-shown a.fade-button {
+	opacity: 1;
+  -webkit-transition: opacity 0.15s ease;
+
+}
+
+.fade-button {
+	opacity: 0;
+}
+
+/* @end */
+
+/* @group Messages */
+
+div.message {
+	background: url('divider-long.png') no-repeat -40px 0px;
+	margin-top: 3px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+div.messages-expand {
+	background: #efefef url('divider-long.png') no-repeat -40px 0px;
+	padding-top: 5px;
+	height: 15px;
+	margin-bottom: -10px;
+	color: #9e9e9e;
+	font: bold 10px Helvetica, Geneva, sans-serif;
+	text-shadow: #f9fcfe 0 1px 0;
+	padding-left: 14px;
+	padding-bottom: 1px;
+	-webkit-font-smoothing: antialiased;
+	-webkit-user-select: none;
+	cursor:default;
+}
+
+div.messages-expand img {
+	margin-left: 200px;
+	margin-top: 0;
+}
+
+div.msg-header {
+	width: auto;
+	padding-top: 2px;
+	margin-right: 10px;
+	margin-left: 15px;
+}
+
+div.from, p.from-u {
+	color: #606060;
+	text-align: left;
+	height: 20px;
+	font-weight: bold;
+	float: left;
+}
+
+div.time {
+	font: 12px/14px Helvetica, Geneva, sans-serif;
+	text-shadow: #f9fcfe 0 1px 0;
+	color: #949696;
+	text-align: right;
+	float: right;
+}
+
+div.message-body, p.message-s, p.main-message  {
+	font: 12px/14px Helvetica, Geneva, sans-serif;
+	text-shadow: #f5f5f5 0 1px 0;
+	-webkit-user-select: text;
+	position: relative;
+	min-height: 15px;
+	margin-top: 8px;
+	margin-bottom: 0px;
+	color: #424242;
+}
+
+p.main-message {
+	margin-bottom: 6px;
+}
+
+div.message-body {
+	clear: both;
+	width: auto;
+	margin-right: 10px;
+	margin-left: 15px;
+}
+
+div.first-message {
+	padding-bottom: 0px;
+}
+
+div.hidden-messages {
+	display: none;
+}
+
+div.messages-wrapper {
+	margin-left: -15px;
+	margin-bottom: -8px;
+	margin-top: 10px;
+}
+
+p.message-s {
+	margin-left: 3px;
+	padding-bottom: 0px;
+	margin-bottom: 0;
+	
+}
+
+/* @end */
+
+/* @group Files */
+
+.file-list {
+	padding-left: 0px;
+	font: 12px/14px Helvetica, Geneva, sans-serif;
+	text-shadow: #f5f5f5 0 1px 0;
+	line-height: 1.5em;
+	color: #424242;
+}
+
+.file-list a {
+    -webkit-user-select: none;
+}
+
+.file-list p.file-status {
+	height: 25px;
+	margin-top: 10px;
+	text-align: left;
+	font-weight: bold;
+	color: #606060;
+	font-size: 11px;
+	background: url('divider.png') no-repeat -1px 19px;
+	margin-top: 10px;
+	margin-bottom: -8px;
+}
+
+div.reveal {
+	margin-top: 5px;
+	margin-left: -2px;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+	-webkit-user-select: text;
+	margin-bottom: 0px;
+	margin-top: 7px;
+	margin-left: -1px;
+}
+
+li {
+    background-position: 0 0px !important;
+	padding-left: 20px !important;
+	text-indent: -0.2em;
+    -webkit-user-select: none;
+}
+
+/* @end */
