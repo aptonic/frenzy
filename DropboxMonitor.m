@@ -111,7 +111,7 @@
 	
 	[self setMonitorPaths:tmpMonitorPaths];
 	[tmpMonitorPaths release];
-	NSLog(@"Now monitoring paths: %@", [self monitorPaths]);
+	//NSLog(@"Now monitoring paths: %@", [self monitorPaths]);
 	
 	[self stopEventBasedMonitoring];
 	[self applyForFileChangeNotifications];
@@ -134,7 +134,6 @@
 
 - (void)watcher:(id<UKFileWatcher>)watcher receivedNotification:(NSString *)notification forPath:(NSString *)path
 {
-    NSLog(@"change to: %@", path);
 	Dropbox *sharedDropbox = [Dropbox sharedDropbox];
 	
 	NSString *uniqueID = [[path stringByDeletingLastPathComponent] lastPathComponent];
