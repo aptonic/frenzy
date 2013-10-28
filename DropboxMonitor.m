@@ -111,7 +111,7 @@
 	
 	[self setMonitorPaths:tmpMonitorPaths];
 	[tmpMonitorPaths release];
-	NSLog(@"Now monitoring paths: %@", [self monitorPaths]);
+	//NSLog(@"Now monitoring paths: %@", [self monitorPaths]);
 	
 	[self stopEventBasedMonitoring];
 	[self applyForFileChangeNotifications];
