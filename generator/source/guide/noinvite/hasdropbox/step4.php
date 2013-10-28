@@ -17,7 +17,7 @@
 			<p>Frenzy will open a web browser and direct you to the Dropbox website. You may be asked to login to Dropbox first. You will then see the below page:</p>
 			<img width="821" height="654" class="shadowed" src="../../images/dropbox-share.jpg">
 			<p>You should enter the email address of the person you wish to use Frenzy with. If you want, you can invite multiple people by entering multiple email addresses, each separated by a comma. </p>
-			<p>In the personal message box, it's a good idea to include the URL <span style="font-weight:bold">http://frenzyapp.com/invite</span> - this is a special URL we have setup that links to a guide much like the one you're reading now that helps your friends get setup with Frenzy.</p>
+			<p>In the personal message box, it's a good idea to include the URL <span style="font-weight:bold">http://aptonic.github.io/frenzy/invite</span> - this is a special URL we have setup that links to a guide much like the one you're reading now that helps your friends get setup with Frenzy.</p>
 			
 			<p>Once you've filled in the fields, click Share Folder. The below dialog should appear:</p>
 			<img width="516" height="432" class="shadowed" src="../../images/folder-shared.jpg">
