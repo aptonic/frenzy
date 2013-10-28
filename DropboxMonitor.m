@@ -76,8 +76,9 @@
 				[tmpMonitorPaths addObject:uniqueFeedPath];
 				
 				NSString *feed = [uniqueFeedPath stringByAppendingPathComponent:@"feed.json"];
-				
+
 				if ([fileManager fileExistsAtPath:feed]) {
+      				[tmpMonitorPaths addObject:feed];
 					[[self modDateCheckPaths] addObject:feed];
 					[self updateLastModificationDateForPaths];
 					[self stopFileModDateCheckTimer];
@@ -110,7 +111,7 @@
 	
 	[self setMonitorPaths:tmpMonitorPaths];
 	[tmpMonitorPaths release];
-	//NSLog(@"Now monitoring paths: %@", [self monitorPaths]);
+	NSLog(@"Now monitoring paths: %@", [self monitorPaths]);
 	
 	[self stopEventBasedMonitoring];
 	[self applyForFileChangeNotifications];
@@ -132,7 +133,7 @@
 }
 
 - (void)watcher:(id<UKFileWatcher>)watcher receivedNotification:(NSString *)notification forPath:(NSString *)path
-{	
+{
 	Dropbox *sharedDropbox = [Dropbox sharedDropbox];
 	
 	NSString *uniqueID = [[path stringByDeletingLastPathComponent] lastPathComponent];
@@ -166,6 +167,13 @@
     if ([[[path stringByDeletingLastPathComponent] lastPathComponent] isEqualToString:@".frenzy"] && ![uniqueID isEqualToString:[[Dropbox sharedDropbox] uniqueID]])
 		[self performSelector:@selector(reloadEverything) withObject:nil afterDelay:0.2];
 	
+    if ([[path lastPathComponent] isEqualToString:@"feed.json"]) {
+        uniqueID = [[[path stringByDeletingLastPathComponent] stringByDeletingLastPathComponent] lastPathComponent];
+        if (![uniqueID isEqualToString:[[Dropbox sharedDropbox] uniqueID]]) {
+            [self performSelector:@selector(reloadFeed) withObject:nil afterDelay:0.2];
+        }
+	}
+    
 	[self stopEventBasedMonitoring];
 	[self applyForFileChangeNotifications];
 }
