@@ -31,7 +31,7 @@ echo "Deploying changes..."
 echo
 
 # Commit & Deploy
-git add *
+git add -A *
 git add -u *
 git commit -a -m "Updated site"
 git push origin gh-pages
