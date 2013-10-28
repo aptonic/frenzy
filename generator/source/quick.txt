@@ -1,0 +1,3 @@
+<embed src="http://d3nipgxp5164b4.cloudfront.net/Frenzy%20Promo.mov" width="768" height="592" 
+autoplay="true" controller="true" pluginspage="http://www.apple.com/ 
+quicktime/download/" /> 
