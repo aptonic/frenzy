@@ -1,6 +1,7 @@
 /* @override 
 	http://127.0.0.1/~john/frenzyapp-website/css/master.css
 	http://127.0.0.1/~john/frenzyapp-website/source/css/master.css
+	http://127.0.0.1/~john/frenzy/generator/source/css/master.css
 */
 
 body {
@@ -103,25 +104,11 @@ div#preloader {
 #download-section {
 	color: #545555;
 	text-align: center;
-	float: left;
 	margin-top: 15px;
-	margin-left: 50px;
-	margin-right: 24px;
-	border-right-style: groove;
-	padding-right: 25px;
-	border-right-color: rgba(202,202,202,0.33);
+	margin-left: auto;
+	margin-right: auto;
 	padding-top: 15px;
 	padding-bottom: 16px;
-}
-
-#buy-section
-{
-	color: #545555;
-	text-align: center;
-	float: left;
-	margin-bottom: 5px;
-	margin-top: 15px;
-	padding-top: 15px;
 }
 
 #lower-container img {
