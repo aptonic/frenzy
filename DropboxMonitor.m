@@ -76,9 +76,9 @@
 				[tmpMonitorPaths addObject:uniqueFeedPath];
 				
 				NSString *feed = [uniqueFeedPath stringByAppendingPathComponent:@"feed.json"];
-
+                [tmpMonitorPaths addObject:feed];
+                
 				if ([fileManager fileExistsAtPath:feed]) {
-      				[tmpMonitorPaths addObject:feed];
 					[[self modDateCheckPaths] addObject:feed];
 					[self updateLastModificationDateForPaths];
 					[self stopFileModDateCheckTimer];
@@ -134,6 +134,7 @@
 
 - (void)watcher:(id<UKFileWatcher>)watcher receivedNotification:(NSString *)notification forPath:(NSString *)path
 {
+    NSLog(@"change to: %@", path);
 	Dropbox *sharedDropbox = [Dropbox sharedDropbox];
 	
 	NSString *uniqueID = [[path stringByDeletingLastPathComponent] lastPathComponent];
