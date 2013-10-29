@@ -236,7 +236,7 @@ static OSStatus dateTimeChanged(EventHandlerCallRef inHandlerCallRef, EventRef i
 - (IBAction)showAbout:(id)sender
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MenuItemClicked" object:self userInfo:nil];
-	[frenzyAppUrl setHyperlink:[NSURL URLWithString:@"http://frenzyapp.com"]];
+	[frenzyAppUrl setHyperlink:[NSURL URLWithString:@"http://aptonic.github.io/frenzy"]];
 	NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
 	[aboutVersion setStringValue:[NSString stringWithFormat:@"Version %@", version]];
 	[NSApp activateIgnoringOtherApps:YES];

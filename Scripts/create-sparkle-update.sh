@@ -1,14 +1,28 @@
 set -o errexit
-echo "Creating Sparkle update..."
-#[ $BUILD_STYLE = Release ] || { echo Distribution target requires "'Release'" build style; false; }
+exec > /Users/john/Desktop/create_sparkle_update.txt 2>&1
 
-VERSION=$(defaults read "$BUILT_PRODUCTS_DIR/$PROJECT_NAME.app/Contents/Info" CFBundleVersion)
+echo "Creating Sparkle Update..."
+[ $BUILD_STYLE = Release ] || { echo Distribution target requires "'Release'" build style; false; }
 
-DOWNLOAD_BASE_URL="http://frenzyapp.com/sparkle"
-RELEASENOTES_URL="http://frenzyapp.com/sparkle/releasenotes/$VERSION.html"
-WEB_PATH="/Users/john/Sites/frenzyapp-website/source/sparkle"
+BUILT_PRODUCTS_DIR="$ARCHIVE_PRODUCTS_PATH/Users/john/Applications"
 
-ARCHIVE_FILENAME="$PROJECT_NAME-$VERSION.zip"
+BUILD_VERSION=$(defaults read "$BUILT_PRODUCTS_DIR/$PROJECT.app/Contents/Info" CFBundleVersion)
+VERSION=$(defaults read "$BUILT_PRODUCTS_DIR/$PROJECT.app/Contents/Info" CFBundleShortVersionString)
+
+x=`/usr/bin/osascript <<EOT
+tell application "System Events"
+    activate
+    set myReply to button returned of (display dialog "Create Sparkle update for version $VERSION (build: $BUILD_VERSION)?" buttons {"Yes", "No"} default button 2)
+end tell
+EOT
+`
+[ $x = Yes ] || { echo "Sparkle update creation aborted"; false; }
+
+DOWNLOAD_BASE_URL="http://aptonic.github.io/frenzy/downloads"
+RELEASENOTES_URL="http://aptonic.github.io/frenzy/sparkle/releasenotes/$VERSION.html"
+WEB_PATH="/Users/john/Sites/frenzy/generator/source/sparkle"
+
+ARCHIVE_FILENAME="$PROJECT-$VERSION.zip"
 DOWNLOAD_URL="$DOWNLOAD_BASE_URL/$ARCHIVE_FILENAME"
 KEYCHAIN_PRIVKEY_NAME="Sparkle Frenzy Private Key"
 
@@ -21,7 +35,7 @@ SIZE=$(stat -f %z "$ARCHIVE_FILENAME")
 PUBDATE=$(date +"%a, %d %b %G %T %z")
 SIGNATURE=$(
 	openssl dgst -sha1 -binary < "$ARCHIVE_FILENAME" \
-	| openssl dgst -dss1 -sign <(security find-generic-password -g -s "$KEYCHAIN_PRIVKEY_NAME" 2>&1 1>/dev/null | perl -pe '($_) = /"(.+)"/; s/\\012/\n/g' | perl -MXML::LibXML -e 'print XML::LibXML->new()->parse_file("-")->findvalue(q(//string[preceding-sibling::key[1] = "NOTE"]))') \
+	| openssl dgst -dss1 -sign <(security find-generic-password -g -s "$KEYCHAIN_PRIVKEY_NAME" 2>&1 1>/dev/null | grep -oe "-----.*-----" | perl -pe 's/\\012/\n/g') \
 	| openssl enc -base64
 )
 
@@ -78,7 +92,6 @@ cat > "$WEB_PATH/../version.php" <<EOF
 ?>
 EOF
 
-cp "$BUILT_PRODUCTS_DIR/$ARCHIVE_FILENAME" "$WEB_PATH"
 cp "$BUILT_PRODUCTS_DIR/$ARCHIVE_FILENAME" "$WEB_PATH/../downloads"
 
-/usr/bin/mate "$WEB_PATH/../../"
+/usr/bin/mate "$WEB_PATH"

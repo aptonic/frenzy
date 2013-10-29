@@ -278,7 +278,7 @@
 	NSURL* urlAtMouse = [self urlAtMouse:mouseEvent];
 	if ( (urlAtMouse != nil)  &&  [urlAtMouse isEqualTo:clickedURL] ) {
         [[NSWorkspace sharedWorkspace] openURL:urlAtMouse];
-        if (![urlAtMouse isEqualTo:[NSURL URLWithString:@"http://frenzyapp.com"]])
+        if (![urlAtMouse isEqualTo:[NSURL URLWithString:@"http://aptonic.github.io/frenzy"]])
             [[NSNotificationCenter defaultCenter] postNotificationName:@"MenuItemClicked" object:self 
                                                               userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], @"noRefocus", nil]];	
         else

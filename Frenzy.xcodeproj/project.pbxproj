@@ -6,21 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		5231108C1276CB490078A2E2 /* Create sparkle update */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 523110991276CB6C0078A2E2 /* Build configuration list for PBXAggregateTarget "Create sparkle update" */;
-			buildPhases = (
-				523110921276CB650078A2E2 /* ShellScript */,
-			);
-			dependencies = (
-				523110901276CB5F0078A2E2 /* PBXTargetDependency */,
-			);
-			name = "Create sparkle update";
-			productName = "Create sparkle update";
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* FrenzyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* FrenzyAppDelegate.m */; };
@@ -142,7 +127,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5231108F1276CB5F0078A2E2 /* PBXContainerItemProxy */ = {
+		52646B9F181F72D60006B16F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
@@ -224,7 +209,6 @@
 		52310ECD1276B1A20078A2E2 /* LoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginItem.m; sourceTree = "<group>"; };
 		52310ECE1276B1A20078A2E2 /* LoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginItem.h; sourceTree = "<group>"; };
 		52310FC41276C8F60078A2E2 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
-		523110811276CB070078A2E2 /* Create sparkle update-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Create sparkle update-Info.plist"; sourceTree = "<group>"; };
 		52354DE0181CCA0D00E7B1F3 /* MASShortcut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASShortcut.h; sourceTree = "<group>"; };
 		52354DE1181CCA0D00E7B1F3 /* MASShortcut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASShortcut.m; sourceTree = "<group>"; };
 		52354DE2181CCA0D00E7B1F3 /* MASShortcut+Monitoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASShortcut+Monitoring.h"; sourceTree = "<group>"; };
@@ -264,6 +248,7 @@
 		525FB8CC11BE548700973BEC /* StatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemView.h; sourceTree = "<group>"; };
 		525FB8CD11BE548700973BEC /* StatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemView.m; sourceTree = "<group>"; };
 		5261250A12F1AFFE00080196 /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
+		52646B9D181F72B80006B16F /* Frenzy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frenzy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52662AAC133573F500355B98 /* libcrypto_10.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libcrypto_10.5.dylib; sourceTree = "<group>"; };
 		52758BC313A79CFF0064479E /* NSData-AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData-AES.h"; sourceTree = "<group>"; };
 		52758BC413A79D000064479E /* NSData-AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData-AES.m"; sourceTree = "<group>"; };
@@ -472,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* Frenzy.app */,
+				52646B9D181F72B80006B16F /* Frenzy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -491,7 +477,6 @@
 				52BEFCA811C1436C0065673A /* QuartzCore.framework */,
 				52BE0E7711C6123D0065673A /* AddressBook.framework */,
 				522FD69F1220DBBC0046CC25 /* IOKit.framework */,
-				523110811276CB070078A2E2 /* Create sparkle update-Info.plist */,
 				52F003CC1309608A00B0D115 /* Quartz.framework */,
 			);
 			name = Frenzy;
@@ -717,6 +702,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		52646B1E181F72B80006B16F /* Create Sparkle Update */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52646B9A181F72B80006B16F /* Build configuration list for PBXNativeTarget "Create Sparkle Update" */;
+			buildPhases = (
+				52646BA2181F75AB0006B16F /* Codesign Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52646BA0181F72D60006B16F /* PBXTargetDependency */,
+			);
+			name = "Create Sparkle Update";
+			productInstallPath = "$(HOME)/Applications";
+			productName = Frenzy;
+			productReference = 52646B9D181F72B80006B16F /* Frenzy.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8D1107260486CEB800E47090 /* Frenzy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Frenzy" */;
@@ -761,7 +763,7 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Frenzy */,
-				5231108C1276CB490078A2E2 /* Create sparkle update */,
+				52646B1E181F72B80006B16F /* Create Sparkle Update */,
 			);
 		};
 /* End PBXProject section */
@@ -815,18 +817,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		523110921276CB650078A2E2 /* ShellScript */ = {
+		52646BA2181F75AB0006B16F /* Codesign Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Codesign Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "script_file=\"create-sparkle-update.sh\"\n\necho \"Running a custom build phase script: $script_file\"\n${PROJECT_DIR}/Scripts/${script_file}\necho \"DONE running a custom build phase script: $script_file\"";
+			shellPath = /bin/sh;
+			shellScript = "sign_identity=\"Developer ID Application: Aptonic Limited\"\n\nscript_file=\"codesign-frameworks.sh ${sign_identity}\"\n\necho \"Running a custom build phase script: $script_file\"\n${PROJECT_DIR}/Scripts/${script_file}\necho \"DONE running a custom build phase script: $script_file\"";
 		};
 		52D9A7491207BDE200C101A1 /* Copy browser extensions script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -924,10 +927,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		523110901276CB5F0078A2E2 /* PBXTargetDependency */ = {
+		52646BA0181F72D60006B16F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8D1107260486CEB800E47090 /* Frenzy */;
-			targetProxy = 5231108F1276CB5F0078A2E2 /* PBXContainerItemProxy */;
+			targetProxy = 52646B9F181F72D60006B16F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -951,23 +954,57 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5231108D1276CB490078A2E2 /* Debug */ = {
+		52646B9B181F72B80006B16F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = "Create sparkle update";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Frenzy_Prefix.pch;
+				INFOPLIST_FILE = "$(SRCROOT)/Frenzy-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = Frenzy;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		5231108E1276CB490078A2E2 /* Release */ = {
+		52646B9C181F72B80006B16F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COPY_PHASE_STRIP = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				PRODUCT_NAME = "Create sparkle update";
-				ZERO_LINK = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Frenzy_Prefix.pch;
+				INFOPLIST_FILE = "$(SRCROOT)/Frenzy-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = Frenzy;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -983,8 +1020,6 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_GC = unsupported;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Frenzy_Prefix.pch;
@@ -1011,8 +1046,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
-				GCC_ENABLE_OBJC_GC = unsupported;
-				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Frenzy_Prefix.pch;
 				INFOPLIST_FILE = "Frenzy-Info.plist";
@@ -1066,11 +1099,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		523110991276CB6C0078A2E2 /* Build configuration list for PBXAggregateTarget "Create sparkle update" */ = {
+		52646B9A181F72B80006B16F /* Build configuration list for PBXNativeTarget "Create Sparkle Update" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5231108D1276CB490078A2E2 /* Debug */,
-				5231108E1276CB490078A2E2 /* Release */,
+				52646B9B181F72B80006B16F /* Debug */,
+				52646B9C181F72B80006B16F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
