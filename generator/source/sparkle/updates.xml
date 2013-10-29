@@ -8,13 +8,13 @@
 		<item>
 			<title>Version 1.5</title>
 			<sparkle:releaseNotesLink>http://aptonic.github.io/frenzy/sparkle/releasenotes/1.5.html</sparkle:releaseNotesLink>
-			<pubDate>Tue, 29 Oct 2013 22:49:55 +1300</pubDate>
+			<pubDate>Tue, 29 Oct 2013 23:03:52 +1300</pubDate>
 			<enclosure
-				url="http://aptonic.github.io/downloads/Frenzy-1.5.zip"
+				url="http://aptonic.github.io/frenzy/downloads/Frenzy-1.5.zip"
 				sparkle:version="1.5"
 				type="application/octet-stream"
-				length="2556327"
-				sparkle:dsaSignature="MC0CFG47f+8ZfOww7oDVFv2K2A1CPi+aAhUAldyXwiyZBR1RulfX2bgJYP4dmFk="
+				length="2546902"
+				sparkle:dsaSignature="MC0CFQDVJyA9s6eQfuKhIQfeY5lIm0zS9QIUJ44N/PsEtERUR4l8iiTF8xcYNuk="
 			/>
 		</item>
      </channel>
