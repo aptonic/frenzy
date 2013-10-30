@@ -71,7 +71,7 @@
 					Frenzy is designed from the ground up to be for just you and a bunch of your close friends.
 				</p>
 				<p>
-					All the Frenzy data is kept inside your Dropbox folders.
+					All the Frenzy data is stored using JSON files inside your Dropbox folders.
 				</p>
 			</div>
 		</div>
@@ -81,7 +81,7 @@
 		<div id="lower-container">
 		
 			<div id="download-section">
-				<p>Frenzy is completely free</p>
+				<p>Frenzy is completely free and now also <a class="link" href="https://github.com/aptonic/frenzy">open source</a></p>
 				<a href="downloads/Frenzy-<?=$frenzy_version?>.zip"><img width="150" height="47" src="images/download.jpg"></a>
 				<p>Frenzy <?=$frenzy_version?></p>
 				<p>Requires OS X 10.7+</p><br>
