@@ -5,7 +5,7 @@ A Dropbox powered social networking tool for the Mac.
 See the [project website](http://aptonic.github.io/frenzy) for a demo and more info.
 You can get a compiled version of the app from there also.
 
-Developed by [John Winter](http://www.aptonic.com) (john@aptonic.com)
+Developed by [John Winter](http://twitter.com/johnwinter) (john@aptonic.com)
 
 ## Backstory
 
