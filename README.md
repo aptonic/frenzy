@@ -12,7 +12,7 @@ Developed by [John Winter](http://www.aptonic.com) (john@aptonic.com)
 
 I originally did this project as a Mac app that I was intending to sell but unfortunately it didn't take off the way I'd hoped. When Apple rejected it from the Mac App Store for depending on  Dropbox that was the final nail in the coffin and I had to abandon it and move onto other projects. I'm now open sourcing it and making it free - mostly because I'm still using it and don't want it to die. Others have emailed me and asked if I would consider open sourcing it. So here we are. 
 
-This code was mostly written in 2010. Both Cocoa and my skills have evolved greatly since then.
+This code was mostly written in 2010 - it's not pretty.
 There's a whole lot in here that should really be rewritten, but I'm putting it up here in the hopes that you can help with that rather than see it die altogether.
 
 I've done some testing on 10.9 and 10.8 and fixed the most pressing bugs and also made it (mostly) support retina displays.

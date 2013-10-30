@@ -14,8 +14,6 @@
 		520543321336C35400C2F401 /* GradientBackgroundTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520543311336C35400C2F401 /* GradientBackgroundTextFieldCell.m */; };
 		5207B5FB129FF4EE000826FC /* SharedFoldersTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5207B5FA129FF4EE000826FC /* SharedFoldersTable.m */; };
 		5207B70212A01C33000826FC /* VerticalOnlyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5207B70012A01C33000826FC /* VerticalOnlyScrollView.m */; };
-		521139B81364187600E6BBDD /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 521139B71364187600E6BBDD /* Sparkle.framework */; };
-		521139B91364188C00E6BBDD /* Sparkle.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 521139B71364187600E6BBDD /* Sparkle.framework */; };
 		5211CE0D13A24A56007CE115 /* NSHost+ThreadedAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5211CE0C13A24A56007CE115 /* NSHost+ThreadedAdditions.m */; };
 		5216D45A1351477A00226F67 /* share-folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5216D4591351477A00226F67 /* share-folder.png */; };
 		5216D46D1351D68C00226F67 /* AMIndeterminateProgressIndicatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5216D46C1351D68C00226F67 /* AMIndeterminateProgressIndicatorCell.m */; };
@@ -40,6 +38,8 @@
 		52354DEE181CCA0D00E7B1F3 /* MASShortcutView+UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 52354DE9181CCA0D00E7B1F3 /* MASShortcutView+UserDefaults.m */; };
 		52354DF4181CF21500E7B1F3 /* gear-l@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52354DF2181CF21500E7B1F3 /* gear-l@2x.png */; };
 		52354DF5181CF21500E7B1F3 /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52354DF3181CF21500E7B1F3 /* gear@2x.png */; };
+		52381616181FC7BF001235D1 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52381615181FC7BF001235D1 /* Sparkle.framework */; };
+		52381617181FC7EB001235D1 /* Sparkle.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 52381615181FC7BF001235D1 /* Sparkle.framework */; };
 		5239B43012CF34ED0067DF86 /* icon-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 5239B42F12CF34ED0067DF86 /* icon-64.png */; };
 		523B9DF311CFE91200DCEC2C /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 523B9DE811CFE91200DCEC2C /* NSObject+SBJSON.m */; };
 		523B9DF411CFE91200DCEC2C /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 523B9DEA11CFE91200DCEC2C /* NSString+SBJSON.m */; };
@@ -152,7 +152,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				521139B91364188C00E6BBDD /* Sparkle.framework in Copy frameworks */,
+				52381617181FC7EB001235D1 /* Sparkle.framework in Copy frameworks */,
 			);
 			name = "Copy frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,7 +180,6 @@
 		5207B5FA129FF4EE000826FC /* SharedFoldersTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedFoldersTable.m; sourceTree = "<group>"; };
 		5207B70012A01C33000826FC /* VerticalOnlyScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalOnlyScrollView.m; sourceTree = "<group>"; };
 		5207B70112A01C33000826FC /* VerticalOnlyScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalOnlyScrollView.h; sourceTree = "<group>"; };
-		521139B71364187600E6BBDD /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		5211CE0B13A24A56007CE115 /* NSHost+ThreadedAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHost+ThreadedAdditions.h"; sourceTree = "<group>"; };
 		5211CE0C13A24A56007CE115 /* NSHost+ThreadedAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHost+ThreadedAdditions.m"; sourceTree = "<group>"; };
 		5213E59313D9668C00588BFD /* IKImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKImagePicker.h; sourceTree = "<group>"; };
@@ -221,6 +220,7 @@
 		52354DE9181CCA0D00E7B1F3 /* MASShortcutView+UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MASShortcutView+UserDefaults.m"; sourceTree = "<group>"; };
 		52354DF2181CF21500E7B1F3 /* gear-l@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-l@2x.png"; sourceTree = "<group>"; };
 		52354DF3181CF21500E7B1F3 /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear@2x.png"; sourceTree = "<group>"; };
+		52381615181FC7BF001235D1 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		5239B42F12CF34ED0067DF86 /* icon-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-64.png"; sourceTree = "<group>"; };
 		523B9DE611CFE91200DCEC2C /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		523B9DE711CFE91200DCEC2C /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
@@ -366,10 +366,10 @@
 				522FF19911BE650500BBF271 /* Carbon.framework in Frameworks */,
 				52BEFCA911C1436C0065673A /* QuartzCore.framework in Frameworks */,
 				52BE0E7811C6123D0065673A /* AddressBook.framework in Frameworks */,
+				52381616181FC7BF001235D1 /* Sparkle.framework in Frameworks */,
 				522FD6A01220DBBC0046CC25 /* IOKit.framework in Frameworks */,
 				529637F112D9316800ED4FE7 /* WebKit.framework in Frameworks */,
 				52F003CD1309608A00B0D115 /* Quartz.framework in Frameworks */,
-				521139B81364187600E6BBDD /* Sparkle.framework in Frameworks */,
 				52662AD41335758600355B98 /* libcrypto_10.5.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,7 +445,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				521139B71364187600E6BBDD /* Sparkle.framework */,
+				52381615181FC7BF001235D1 /* Sparkle.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
@@ -1017,7 +1017,8 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					/Users/john/Dropbox/Documents/XcodeProjects/Frenzy,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1044,7 +1045,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					/Users/john/Dropbox/Documents/XcodeProjects/Frenzy,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Frenzy_Prefix.pch;
