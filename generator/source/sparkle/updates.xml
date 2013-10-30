@@ -6,6 +6,18 @@
         <description>Frenzy releases</description>
         <language>en</language>
 		<item>
+			<title>Version 1.6</title>
+			<sparkle:releaseNotesLink>http://aptonic.github.io/frenzy/sparkle/releasenotes/1.6.html</sparkle:releaseNotesLink>
+			<pubDate>Wed, 30 Oct 2013 19:53:03 +1300</pubDate>
+			<enclosure
+				url="http://aptonic.github.io/frenzy/downloads/Frenzy-1.6.zip"
+				sparkle:version="1.6"
+				type="application/octet-stream"
+				length="1798170"
+				sparkle:dsaSignature="MCwCFHe8WsneEvIrz+bQUsFUwLIR22K9AhReKVf7hX8i5RduZzps87bqcxLsnw=="
+			/>
+		</item>
+		<item>
 			<title>Version 1.5</title>
 			<sparkle:releaseNotesLink>http://aptonic.github.io/frenzy/sparkle/releasenotes/1.5.html</sparkle:releaseNotesLink>
 			<pubDate>Wed, 30 Oct 2013 19:44:37 +1300</pubDate>
