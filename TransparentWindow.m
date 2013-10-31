@@ -21,7 +21,7 @@
 		[self setBackgroundColor:[NSColor clearColor]];
 		[self setHasShadow:NO];
 		[self setIgnoresMouseEvents:NO];
-        [self setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces];
+        [self setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces | NSWindowCollectionBehaviorStationary];
     }
     return self;
 }

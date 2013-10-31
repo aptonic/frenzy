@@ -183,7 +183,7 @@ static OSStatus dateTimeChanged(EventHandlerCallRef inHandlerCallRef, EventRef i
 {
 	if (isFirstLaunch) return;
 
-    NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];	
+    NSScrollView *scrollView = [[[[webView mainFrame] frameView] documentView] enclosingScrollView];
 	[[scrollView documentView] scrollPoint:NSMakePoint(0, 0)];
 	[scrollView display];
     
@@ -205,8 +205,12 @@ static OSStatus dateTimeChanged(EventHandlerCallRef inHandlerCallRef, EventRef i
 
 	[shareItem closePopup:YES clearTextEditor:YES];
     [[prefsButton cell] mouseExited:nil];
-     
     [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setCompletionHandler:^{
+        [[self window] orderOut:nil];
+        [window setAlphaValue:1.0];
+    }];
+    
     [[NSAnimationContext currentContext] setDuration:0.1];  
 	[[window animator] setAlphaValue:0.0];
     [NSAnimationContext endGrouping];
