@@ -53,23 +53,25 @@
             else
                 fileIcon = [[NSWorkspace sharedWorkspace] iconForFileType:[[fileDict objectForKey:@"name"] pathExtension]];
             
-            [fileIcon setSize:NSMakeSize(16, 16)];
+            NSInteger fileIconSize = (webView.window.backingScaleFactor > 1 ? 32 : 16);
+            
+            [fileIcon setSize:NSMakeSize(fileIconSize, fileIconSize)];
             [fileIcon setScalesWhenResized:YES];
             
             NSImage *newIcon = [[NSImage alloc]
-                                initWithSize:NSMakeSize(16, 16)];
+                                initWithSize:NSMakeSize(fileIconSize, fileIconSize)];
             [newIcon lockFocus];
             [[NSGraphicsContext currentContext]
              setImageInterpolation:NSImageInterpolationHigh];
-            [fileIcon drawInRect:NSMakeRect(0,0,16,16)
-                        fromRect:NSMakeRect(0,0, [fileIcon size].width, [fileIcon size].height)
+            [fileIcon drawInRect:NSMakeRect(0, 0, fileIconSize, fileIconSize)
+                        fromRect:NSMakeRect(0, 0, [fileIcon size].width, [fileIcon size].height)
                        operation:NSCompositeCopy fraction:1.0];
             [newIcon unlockFocus];
             
             NSString *base64Encoded = [[newIcon TIFFRepresentation] base64EncodedString];
             [newIcon release];
             
-            NSString *styleString = [NSString stringWithFormat: @"background:transparent url(data:image/png;base64,%@) no-repeat;", base64Encoded];
+            NSString *styleString = [NSString stringWithFormat: @"background:transparent url(data:image/png;base64,%@) no-repeat; background-size: 16px 16px;", base64Encoded];
             [li setAttribute:@"style" value:styleString];
             
             BOOL wasFileTransferCompleted = [sharedFilesHelper wasFileTransferCompletedForItem:feedItem];

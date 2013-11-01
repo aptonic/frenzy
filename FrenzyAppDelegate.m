@@ -37,6 +37,10 @@ static OSStatus dateTimeChanged(EventHandlerCallRef inHandlerCallRef, EventRef i
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(systemClockChanged) name:@"NSSystemClockDidChangeNotification" object:nil];
 	
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadFeed)
+                                                 name:NSApplicationDidChangeScreenParametersNotification object:nil];
+    
 	BOOL testFirstLaunch = NO;
 	
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
