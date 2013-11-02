@@ -33,7 +33,6 @@
 		});	
 		
 		setTimeout(function(){ $("#scroller").scrollable().seekTo(0,0); }, 0);
-
 	}
 	$(document).ready(function() {
 		$("a#video").fancybox({ 
@@ -53,6 +52,8 @@
 		
 		if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
 			$("a#video").attr("href", "quick-iphone.txt");
+			$("a#forkbanner").hide();
+
 		} else {
 			$("a#video").attr("href", "quick.txt");
 		}
@@ -98,6 +99,6 @@ if (strlen($basename) >= 5) {
 ?>
 
 <body<?=($page == "Home" ? " onload=\"initScroller()\"" : "") ?>>
-	<a href="https://github.com/aptonic/frenzy"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+	<a id="forkbanner" href="https://github.com/aptonic/frenzy"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
 	<div id="wrapper">
 		<?php include("topnav.php") ?>

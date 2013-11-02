@@ -89,7 +89,7 @@ body {
 
 #lower-container
 {
-	width: 500px;
+	width: 600px;
 	margin-right: auto;
 	margin-top: -13px;
 	margin-left: auto;
@@ -127,6 +127,7 @@ div#preloader {
 	padding: 0;
 	margin: 0;
 	line-height: 1.5em;
+	font-size: 16px;
 }
 
 div.share-button {
@@ -195,7 +196,7 @@ h3 {
 
 .scrollable {
 	float: left;
-	height: 410px;
+	height: 430px;
 	width: 770px;
 	overflow:hidden;
 	position: relative;
