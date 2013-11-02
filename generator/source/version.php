@@ -1,5 +1,5 @@
 <?php
 
-$frenzy_version = "1.5";
+$frenzy_version = "1.6";
 
 ?>
